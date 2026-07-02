@@ -36,7 +36,7 @@
     let data = $derived({
         labels: Array.from(
             { length: results.player1Actions.length },
-            (_, i) => i + 1,
+            (_, i) => i,
         ),
         datasets: [
             {
