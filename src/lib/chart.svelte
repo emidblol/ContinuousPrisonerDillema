@@ -82,7 +82,7 @@
                 tension: 0.4,
             },
         ],
-    }));
+    });
     let previousResults = results;
     // Watch for changes in results and update the chart accordingly
     $effect(() => {
