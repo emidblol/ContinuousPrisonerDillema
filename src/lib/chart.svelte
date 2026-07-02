@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
     // export let results;
     let { results } = $props();
     let chart = $state(null);
