@@ -14,6 +14,7 @@
     player2Scores: [],
     player1StateLevels: [],
     player2StateLevels: [],
+    csvContent: ""
   };
   let player1Classes = ""
   let player2Classes = ""
@@ -26,7 +27,7 @@
       algorithm1,
       algorithm2,
     });
-    results = runSimulation(baseAnger, numRounds, cost, benefit, false, algorithm1, algorithm2);
+    results = runSimulation(baseAnger, numRounds, cost, benefit, true, algorithm1, algorithm2);
     if (results.player1Scores[results.player1Scores.length - 1] > results.player2Scores[results.player2Scores.length - 1]) {
       player1Classes = "greenNumBox"
       player2Classes = "redNumBox"
@@ -39,6 +40,18 @@
     }
     console.log(results);
 
+  }
+
+  function downloadCSV() {
+    const blob = new Blob([results.csvContent], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'simulation_results.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   }
 </script>
 
@@ -78,3 +91,5 @@ Benefit: <input type="number" bind:value={benefit} min="0" step="0.01" />
   <p><b>{results?.player2Scores[results?.player2Scores?.length - 1] ?? "0"}</b></p>
 </div>
 </div>
+
+<button on:click={downloadCSV}>Download CSV</button>
