@@ -32,8 +32,8 @@
             ...(results.player2Scores || []),
         ),
     );
-    let maxX = $state(() => results.player1Actions?.length || 10);
-    let data = $state(() => ({
+    let maxX = $derived(results.player1Actions?.length-1 || 10);
+    let data = $derived({
         labels: Array.from(
             { length: results.player1Actions.length },
             (_, i) => i + 1,
