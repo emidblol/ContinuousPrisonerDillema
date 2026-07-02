@@ -26,7 +26,7 @@
         CategoryScale,
         zoomPlugin,
     );
-    let maxY = $state(() =>
+    let maxY = $derived(
         Math.max(
             ...(results.player1Scores || []),
             ...(results.player2Scores || []),
