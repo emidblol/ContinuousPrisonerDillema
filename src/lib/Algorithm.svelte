@@ -26,7 +26,7 @@
       algorithm1,
       algorithm2,
     });
-    results = runSimulation(baseAnger, numRounds, cost, benefit, false, false, algorithm1, algorithm2);
+    results = runSimulation(baseAnger, numRounds, cost, benefit, false, algorithm1, algorithm2);
     if (results.player1Scores[results.player1Scores.length - 1] > results.player2Scores[results.player2Scores.length - 1]) {
       player1Classes = "greenNumBox"
       player2Classes = "redNumBox"
@@ -52,6 +52,7 @@ Benefit: <input type="number" bind:value={benefit} min="0" step="0.01" />
       <option value="titForTat">Tit for Tat</option>
       <option value="smart">Smart</option>
       <option value="trump">Trump</option>
+      <option value="europeanUnion">European Union</option>
     </select>
   </div>
   <div class="dropBoxDiv">
@@ -59,6 +60,7 @@ Benefit: <input type="number" bind:value={benefit} min="0" step="0.01" />
       <option value="titForTat">Tit for Tat</option>
       <option value="smart">Smart</option>
       <option value="trump">Trump</option>
+      <option value="europeanUnion">European Union</option>
     </select>
   </div>
 </div>

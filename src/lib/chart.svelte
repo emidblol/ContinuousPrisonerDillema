@@ -32,6 +32,13 @@
             ...(results.player2Scores || []),
         ),
     );
+    let minY = $derived(
+        Math.min(
+            ...(results.player1Scores || []),
+            ...(results.player2Scores || []),
+            0
+        ),
+    );
     let maxX = $derived(results.player1Actions?.length - 1 || 10);
     let data = $derived({
         labels: Array.from(
@@ -183,7 +190,7 @@
             },
             y: {
                 type: "linear",
-                min: 0,
+                min: minY || 0,
                 max: maxY || 10,
             },
         },
@@ -217,7 +224,7 @@
                 limits: {
                     x: { min: 0, max: maxX || 10, minRange: 2 },
                     y: {
-                        min: 0,
+                        min: minY || 0,
                         max: maxY || 10,
                         minRange: 1,
                     },

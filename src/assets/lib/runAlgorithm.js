@@ -24,13 +24,12 @@ import { calculatePayoff } from './CPD.js';
  * @param {Number} rounds amount of rounds
  * @param {Number} cost Cost of cooperating
  * @param {Number} maxBenefit Maximum benefit from cooperating
- * @param {Boolean} saveFile Whether to save the results to a file
- * @param {Boolean} csvFormat True if the results should be saved in CSV format, false for JSON format
+ * @param {Boolean} csvFormat Returns extra data in CSV format if true, otherwise returns JSON format
  * @param {AlgorithmName} algorithm1 The name of the first algorithm to use
  * @param {AlgorithmName} algorithm2 The name of the second algorithm to use
  * @returns {response} The results of the simulation, including actions, state levels, and scores for both players
  */
-function runSimulation(BaseAnger, rounds, cost, maxBenefit, saveFile, csvFormat, algorithm1, algorithm2) {
+function runSimulation(BaseAnger, rounds, cost, maxBenefit, csvFormat, algorithm1, algorithm2) {
     let state1 = {}
     let state2 = {}
     switch (algorithm1) {
