@@ -1,6 +1,7 @@
 import { algorithm as titForTatAlgorithm } from './titForTat.js';
 import { algorithm as trumpAlgorithm } from './EscalatoryAlgorithm.js';
 import { algorithm as smartAlgorithm } from './SmartAlgorithm.js';
+import { algorithm as europeanUnionAlgorithm } from './EuropeanUnionAlgorithm.js';
 import { calculatePayoff } from './CPD.js';
 // const fs = require('fs');
 
