@@ -34,25 +34,25 @@ function runSimulation(BaseAnger, rounds, cost, maxBenefit, saveFile, csvFormat,
     let state1 = {}
     let state2 = {}
     switch (algorithm1) {
-        case 'titForTat':
-            state1 = {};
-            break;
         case 'smart':
             state1 = { exploit: 0 };
             break;
         case 'trump':
             state1 = { anger: BaseAnger };
             break;
+        default: 
+            state1 = {};
+            break;
     }
     switch (algorithm2) {
-        case 'titForTat':
-            state2 = {};
-            break;
         case 'smart':
             state2 = { exploit: 0 };
             break;
         case 'trump':
             state2 = { anger: BaseAnger };
+            break;
+        default:
+            state2 = {};
             break;
     }
     let player1Score = 0; // Score for player
