@@ -6,7 +6,7 @@ import { calculatePayoff } from './CPD.js';
 // const fs = require('fs');
 
 /**
- * @typedef {'titForTat'|'smart'|'trump'} AlgorithmName
+ * @typedef {'titForTat'|'smart'|'trump'|'europeanUnion'} AlgorithmName
  */
 
 /**
@@ -81,6 +81,9 @@ function runSimulation(BaseAnger, rounds, cost, maxBenefit, saveFile, csvFormat,
             case 'trump':
                 strat1 = trumpAlgorithm(player1PreviousAction, player2PreviousAction, state1);
                 break;
+            case 'europeanUnion':
+                strat1 = europeanUnionAlgorithm(player1PreviousAction, player2PreviousAction, state1);
+                break;
             default:
                 strat1 = smartAlgorithm(player1PreviousAction, player2PreviousAction, state1);
                 break;
@@ -94,6 +97,9 @@ function runSimulation(BaseAnger, rounds, cost, maxBenefit, saveFile, csvFormat,
                 break;
             case 'trump':
                 strat2 = trumpAlgorithm(player2PreviousAction, player1PreviousAction, state2);
+                break;
+            case 'europeanUnion':
+                strat2 = europeanUnionAlgorithm(player2PreviousAction, player1PreviousAction, state2);
                 break;
             default:
                 strat2 = smartAlgorithm(player2PreviousAction, player1PreviousAction, state2);
