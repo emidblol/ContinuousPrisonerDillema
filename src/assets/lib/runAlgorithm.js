@@ -17,6 +17,7 @@ import { calculatePayoff } from './CPD.js';
  * @property {Number[]} player2StateLevels - The opponent's state levels for the current round.
  * @property {Number[]} player1Scores - The player's scores for the current round.
  * @property {Number[]} player2Scores - The opponent's scores for the current round.
+ * @property {String} csvContent - The CSV content of the simulation results.
  */
 /**
  * 
@@ -149,8 +150,13 @@ function runSimulation(BaseAnger, rounds, cost, maxBenefit, csvFormat, algorithm
         player1Scores.push(player1Score);
         player2Scores.push(player2Score);
     }
-
-    // Convert CSV content to JSON format
+    let csvContent = "";
+    if (csvFormat) {
+        csvContent = "Round,Player 1 Action,Player 2 Action,Player 1 State Level,Player 2 State Level,Player 1 Score,Player 2 Score\n";
+        for (let i = 0; i < rounds; i++) {
+            csvContent += `${i + 1},${player1Actions[i]},${player2Actions[i]},${player1StateLevels[i]},${player2StateLevels[i]},${player1Scores[i]},${player2Scores[i]}\n`;
+        }
+    }
     console.log(rounds);
     const jsonContent = {
         player1Actions: player1Actions,
@@ -158,7 +164,8 @@ function runSimulation(BaseAnger, rounds, cost, maxBenefit, csvFormat, algorithm
         player1StateLevels: player1StateLevels,
         player2StateLevels: player2StateLevels,
         player1Scores: player1Scores,
-        player2Scores: player2Scores
+        player2Scores: player2Scores,
+        csvContent: csvContent
     };
     return jsonContent;
 }
