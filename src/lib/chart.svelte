@@ -177,6 +177,18 @@
     {data}
     options={{
         responsive: true,
+        scales: {
+                x: {
+                    type: "linear",
+                    min: 0,
+                    max: maxX||10,
+                },
+                y: {
+                    type: "linear",
+                    min: 0,
+                    max: maxY||10,
+                },
+            },
         plugins: {
             legend: {
                 position: "top",
@@ -186,21 +198,7 @@
                 display: true,
                 text: "Simulation Results" + new Date().toLocaleString(),
             },
-            scales: {
-                x: {
-                    type: "linear",
-                    min: 0,
-                    max: maxX||10,
-                    ticks: {
-                        source: 'auto',
-                    },
-                },
-                y: {
-                    type: "linear",
-                    min: 0,
-                    max: maxY||10,
-                },
-            },
+            
             zoom: {
                 zoom: {
                     wheel: {
