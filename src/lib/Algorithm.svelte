@@ -47,7 +47,8 @@
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'simulation_results.csv';
+    let filename = `simulation_results_${algorithm1}_vs_${algorithm2}_${new Date().toISOString()}.csv`;
+    a.download = filename;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
