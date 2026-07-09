@@ -152,9 +152,9 @@ function runSimulation(BaseAnger, rounds, cost, maxBenefit, csvFormat, algorithm
     }
     let csvContent = "";
     if (csvFormat) {
-        csvContent = "Round,Player 1 Action,Player 2 Action,Player 1 State Level,Player 2 State Level,Player 1 Score,Player 2 Score\n";
+        csvContent = "Round;Player 1 Action;Player 2 Action;Player 1 State Level;Player 2 State Level;Player 1 Score;Player 2 Score\n";
         for (let i = 0; i < rounds; i++) {
-            csvContent += `${i + 1},${player1Actions[i]},${player2Actions[i]},${player1StateLevels[i]},${player2StateLevels[i]},${player1Scores[i]},${player2Scores[i]}\n`;
+            csvContent += `${i + 1};${player1Actions[i]};${player2Actions[i]};${player1StateLevels[i]};${player2StateLevels[i]};${player1Scores[i]};${player2Scores[i]}\n`;
         }
     }
     console.log(rounds);
